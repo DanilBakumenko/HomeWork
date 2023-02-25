@@ -39,8 +39,8 @@ int SumOfElemetsWithOddIndex(int[] array)
 }
 
 int lengthOfArray = ReadNumber("Enter the length of array");
-int minValue = -9;
-int maxValue = 9;
+int minValue = ReadNumber("Enter the minimum number in the array");
+int maxValue = ReadNumber("Enter the maximal number in the array");
 int[] array = GetRandomArray(lengthOfArray, minValue, maxValue);
 
 Console.WriteLine($"[{string.Join(' ', array)}]");
