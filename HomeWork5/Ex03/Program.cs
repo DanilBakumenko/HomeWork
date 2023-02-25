@@ -25,18 +25,26 @@ int[] GetRandomArray(int length, int minValue, int maxValue)
 
 int DiffBetweenMaxAndMinNumber(int[] array)
 {
-    int sum = 0;
+    int max = 0;
+    int min = 2147483647;
     for (int i = 1; i < array.Length; i++)
     {
-        if (i % 2 != 0 )
+        if (array[i] > max)
         {
-            sum += array[i];
+            max = array[i];
+        }
+        if (array[i]< min)
+        {
+            min = array[i];
         }
     }
-    return sum;
+    return (max - min);
 }
 
 int lengthOfArray = ReadNumber("Enter the length of array");
 int minValue = ReadNumber("Enter the minimum number in the array");
 int maxValue = ReadNumber("Enter the maximal number in the array");
 int[] array = GetRandomArray(lengthOfArray, minValue, maxValue);
+Console.WriteLine($"[{string.Join(' ', array)}]");
+
+Console.WriteLine($"Difference between maximum and minimum number in the array {DiffBetweenMaxAndMinNumber(array)}");
