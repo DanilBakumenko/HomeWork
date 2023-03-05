@@ -6,7 +6,7 @@ int ReadNumber(string messageToUser)
     return value;
 }
 
-void PrintPaskalTriangel(int rows)
+int[,] GetPaskalTriangel(int rows)
 {
     int[,] matrix = new int[rows, rows];
 
@@ -22,10 +22,15 @@ void PrintPaskalTriangel(int rows)
             else { matrix[i, j] = matrix[i - 1, j - 1] + matrix[i - 1, j]; }
         }
     }
+    return matrix;
+}
 
+void PrintPaskalTriangel(int[,] matrix)
+{
+    int rows = matrix.GetLength(0);
     for (int i = 0; i < rows; i++)
     {
-        int count =0;
+        int count = 0;
         for (int j = 0; j < rows; j++)
         {
             if (matrix[i, j] > 9)
@@ -39,7 +44,7 @@ void PrintPaskalTriangel(int rows)
             }
 
         }
-        for (int j = 0; j < rows * 4 - i - count/2; j++)
+        for (int j = 0; j < rows * 4 - i - count / 2; j++)
         {
             Console.Write(" ");
         }
@@ -83,4 +88,5 @@ void PrintPaskalTriangelWithOutMatrix(int rows)
 }
 
 int N = ReadNumber("Enter number of rows");
-PrintPaskalTriangel(N);
+int[,] paskalTriangel = GetPaskalTriangel(N);
+PrintPaskalTriangel(paskalTriangel);
