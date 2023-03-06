@@ -46,7 +46,7 @@ void PrintMatrix(int[,] matrix)
         Console.WriteLine();
     }
 }
-
+Console.WriteLine("You can find numbers in a 10X10 matrix, numbering starts from 1");
 int m = ReadNumber("Enter the number of row") - 1;
 int n = ReadNumber("Enter the number of colum") - 1;
 int[,] myMatrix = GetRandomMatrix();
