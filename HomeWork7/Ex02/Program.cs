@@ -51,7 +51,7 @@ int m = ReadNumber("Enter the number of row") - 1;
 int n = ReadNumber("Enter the number of colum") - 1;
 int[,] myMatrix = GetRandomMatrix();
 PrintMatrix(myMatrix);
-if (m < myMatrix.GetLength(0) && n < myMatrix.GetLength(1))
+if (m < myMatrix.GetLength(0) && n < myMatrix.GetLength(1) && m > 0 && n > 0)
 {
     Console.WriteLine($"You found {myMatrix[m, n]}");
 }
