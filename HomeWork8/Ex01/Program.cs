@@ -42,28 +42,16 @@ void SortNumbersInMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        int jTemp = matrix.GetLength(1) - 1;
-        int temp = 0;
         for (int j = 0; j < matrix.GetLength(1) - 1; j++)
         {
-            if (matrix[i, j] > matrix[i, jTemp])
+            for (int k = 0; k < matrix.GetLength(1) - 1; k++)
             {
-                temp = matrix[i, jTemp];
-                matrix[i, jTemp] = matrix[i, j];
-                matrix[i, j] = temp;
-            }
-            else if (matrix[i, j] > matrix[i, j + 1])
-            {
-                jTemp = jTemp - 1;
-                temp = matrix[i, j];
-                matrix[i, j] = matrix[i, j+1];
-                matrix[i, j+1] = temp;
-            }
-            if (matrix[i,j] < matrix[i,0])
-            {
-                temp = matrix[i,j];
-                matrix[i,j] = matrix[i,0];
-                matrix[i,0] = temp;
+                if (matrix[i,k] > matrix[i,k + 1])
+                {
+                    int temp = matrix[i,k];
+                    matrix[i,k] = matrix[i,k + 1];
+                    matrix[i,k + 1] = temp;
+                }
             }
         }
     }
@@ -72,4 +60,7 @@ void SortNumbersInMatrix(int[,] matrix)
 int m = ReadNumber("Enter the number of row");
 int n = ReadNumber("Enter the number of colum");
 int[,] myMatrix = GetRandomMatrix(m, n);
+PrintMatrix(myMatrix);
+SortNumbersInMatrix(myMatrix);
+Console.WriteLine();
 PrintMatrix(myMatrix);
